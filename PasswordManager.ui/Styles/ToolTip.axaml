@@ -12,6 +12,5 @@
         <Setter Property="CornerRadius" Value="6"/>
         <Setter Property="Padding" Value="8,4"/>
         <Setter Property="FontSize" Value="12"/>
-        <Setter Property="FontFamily" Value="SemiBold"/>
     </Style>
 </Styles>

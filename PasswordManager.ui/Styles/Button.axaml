@@ -15,7 +15,7 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="MinWidth" Value="90"/>
-        <Setter Property="FontFamily" Value="SemiBold"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
         <Setter Property="MinHeight" Value="37"/>
         <Setter Property="CornerRadius" Value="8"/>
     </Style>

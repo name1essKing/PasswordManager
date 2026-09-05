@@ -14,7 +14,6 @@
     <Style Selector="CheckBox.custom-check-box">
         <Setter Property="Foreground" Value="{StaticResource WhiteMain}"/>
         <Setter Property="Cursor" Value="Hand"/>
-        <Setter Property="FontFamily" Value="SemiBold"/>
         
         <!-- Обычное состояние квадратного чекбокса -->
         <Style Selector="^ /template/ Border#NormalRectangle">

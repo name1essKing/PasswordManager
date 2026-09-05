@@ -35,7 +35,6 @@
 
     <Style Selector="TextBlock">
         <Setter Property="Foreground" Value="{StaticResource WhiteMain}" />
-        <Setter Property="FontFamily" Value="SemiBold" />
     </Style>
 
     <Style Selector="TextBlock.header">

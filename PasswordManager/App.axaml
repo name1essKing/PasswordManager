@@ -6,6 +6,6 @@
 
 	<Application.Styles>
 		<FluentTheme />
-		<StyleInclude Source="avares://PasswordManager.UI/Styles/Styles.axaml"/> 
+		<StyleInclude Source="avares://PasswordManager.ui/Styles/Styles.axaml"/> 
 	</Application.Styles>
 </Application>
