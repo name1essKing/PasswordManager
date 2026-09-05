@@ -1,0 +1,65 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <Design.PreviewWith>
+        <Border Padding="20" Background="#18181B" Width="300" Height="200">
+            <StackPanel Spacing="10">
+                <CheckBox Content="Цифры" IsChecked="False" Classes="custom-check-box"/>
+                <CheckBox Content="Спецсимволы" IsChecked="True" Classes="custom-check-box"/>
+                <CheckBox Content="Заглавные" IsChecked="True" Classes="custom-check-box"/>
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
+
+    <Style Selector="CheckBox.custom-check-box">
+        <Setter Property="Foreground" Value="{StaticResource WhiteMain}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="FontFamily" Value="SemiBold"/>
+        
+        <!-- Обычное состояние квадратного чекбокса -->
+        <Style Selector="^ /template/ Border#NormalRectangle">
+            <Setter Property="Background" Value="{StaticResource Grey500}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Grey100}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="4"/>
+        </Style>
+
+        <!-- Цвет галочки -->
+        <Style Selector="^ /template/ Path#CheckGlyph">
+            <Setter Property="Fill" Value="{StaticResource WhiteMain}"/>
+        </Style>
+
+        <!-- Наведение мышкой (:pointerover) -->
+        <Style Selector="^:pointerover">
+            <Style Selector="^ /template/ Border#NormalRectangle">
+                <Setter Property="Background" Value="{StaticResource Grey300}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource Blue100}"/>
+            </Style>
+            
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Foreground" Value="{StaticResource WhiteMain}"/>
+            </Style>
+        </Style>
+
+        <!-- Состояние выбранного чекбокса (:checked) -->
+        <Style Selector="^:checked">
+            <Style Selector="^ /template/ Border#NormalRectangle">
+                <Setter Property="Background" Value="{StaticResource Blue200}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource Blue200}"/>
+            </Style>
+
+            <!-- Наведение мышкой на выбранный чекбокс (:checked:pointerover) -->
+            <Style Selector="^:pointerover /template/ Border#NormalRectangle">
+                <Setter Property="Background" Value="{StaticResource Blue100}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource Blue100}"/>
+            </Style>
+        </Style>
+
+        <!-- Нажатие (:pressed) -->
+        <Style Selector="^:pressed /template/ Border#NormalRectangle">
+            <Setter Property="Background" Value="{StaticResource Blue300}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Blue300}"/>
+        </Style>
+    </Style>
+
+</Styles>

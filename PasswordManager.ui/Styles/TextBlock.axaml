@@ -1,0 +1,69 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Design.PreviewWith>
+    <StackPanel Width="500" Height="200">
+			<TextBlock
+            Classes=""
+            Text="11111"/>
+
+            <TextBlock
+            Classes="header"
+            Text="11111"/>
+
+            <TextBlock
+            Classes="sub-header"
+            Text="11111"/>
+
+            <TextBlock
+            Classes="label"
+            Text="11111"/>
+
+            <TextBlock
+            Classes="password"
+            Text="11111"/>
+
+            <TextBlock
+            Classes="history"
+            Text="11111"/>
+		
+            <TextBlock
+            Classes="slider-value"
+            Text="11111"/>
+            
+        </StackPanel>
+  </Design.PreviewWith>
+
+    <Style Selector="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource WhiteMain}" />
+        <Setter Property="FontFamily" Value="SemiBold" />
+    </Style>
+
+    <Style Selector="TextBlock.header">
+        <Setter Property="FontSize" Value="22" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+
+    <Style Selector="TextBlock.sub-header">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+    </Style>
+
+    <Style Selector="TextBlock.slider-value">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Margin" Value="0,-14,0,0" />
+    </Style>
+
+    <Style Selector="TextBlock.label">
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+    </Style>
+
+    <Style Selector="TextBlock.password">
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+</Styles>

@@ -1,0 +1,55 @@
+﻿<ResourceDictionary
+  xmlns="https://github.com/avaloniaui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+  <!-- Colors -->
+    <Color x:Key="WhiteMainColor">#e4e4e7</Color>
+
+    <!-- Grey  Colors -->
+
+    <Color x:Key="Grey100Color">#666666</Color>
+    <Color x:Key="Grey200Color">#444444</Color>
+    <Color x:Key="Grey300Color">#333333</Color>
+    <Color x:Key="Grey400Color">#27272A</Color>
+    <Color x:Key="Grey500Color">#27272A</Color>
+    
+    <!-- Blue  Colors -->
+    <Color x:Key="Blue100Color">#2563EB</Color>
+    <Color x:Key="Blue200Color">#1D4ED8</Color>
+    <Color x:Key="Blue300Color">#1E40AF</Color>
+    <!-- Brushes -->
+    <SolidColorBrush
+      x:Key="WhiteMain"
+      Color="{StaticResource WhiteMainColor}" />
+
+    <!-- Grey Brushes -->
+    <SolidColorBrush
+      x:Key="Grey100"
+      Color="{StaticResource Grey100Color}" /> 
+    <SolidColorBrush
+      x:Key="Grey200"
+      Color="{StaticResource Grey200Color}" />
+    <SolidColorBrush
+      x:Key="Grey300"
+      Color="{StaticResource Grey300Color}" />
+    <SolidColorBrush
+      x:Key="Grey400"
+      Color="{StaticResource Grey400Color}" />
+    <SolidColorBrush
+      x:Key="Grey500"
+      Color="{StaticResource Grey500Color}" />
+
+    <!-- Blue Brushes -->
+    <SolidColorBrush
+      x:Key="Blue100"
+      Color="{StaticResource Blue100Color}" /> 
+    <SolidColorBrush
+      x:Key="Blue200"
+      Color="{StaticResource Blue200Color}" />
+    <SolidColorBrush
+      x:Key="Blue300"
+      Color="{StaticResource Blue300Color}" />
+    <SolidColorBrush
+      x:Key="Blue400"
+      Color="{StaticResource Blue400Color}" />
+</ResourceDictionary>
