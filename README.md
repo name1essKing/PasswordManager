@@ -11,6 +11,6 @@
 
 ---
 
-Стек: Avalonia, ReactiveUI, MVVM, .net8.0, Autofac.
+Стек: Avalonia, ReactiveUI, .net8.0, Autofac.
 
 ---
