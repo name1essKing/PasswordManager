@@ -20,9 +20,7 @@ namespace PasswordManager.Client.Views
         /// Коллекция для вывода сгенерированных паролей в UI
         /// </summary>
         public ObservableCollection<string> GeneratedPasswords { get; } = new();
-        public PasswordResultsViewModel(
-            IPasswordStorageService storage,
-            IPasswordEventService eventService)
+        public PasswordResultsViewModel(IPasswordStorageService storage, IPasswordEventService eventService)
         {
             _storage = storage;
             _eventService = eventService;
