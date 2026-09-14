@@ -14,5 +14,6 @@
 Стек: Avalonia, ReactiveUI, .net8.0, Autofac.
 
 ---
-<img width="702" height="585" alt="image" src="https://github.com/user-attachments/assets/38a9c6e4-92a5-41ee-bf58-d170911bdab5" />
+<img width="701" height="584" alt="image" src="https://github.com/user-attachments/assets/a177a4d7-b413-4a9f-a83d-e919005a9c45" />
+
 
