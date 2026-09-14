@@ -9,6 +9,7 @@
         </StackPanel>
     </Design.PreviewWith>
 
+    <!-- Базовый стиль для всех кнопок -->
     <Style Selector="Button">
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -16,6 +17,7 @@
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="MinWidth" Value="90"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="FontSize" Value="13"/>
         <Setter Property="MinHeight" Value="37"/>
         <Setter Property="CornerRadius" Value="8"/>
     </Style>
@@ -24,7 +26,6 @@
     <Style Selector="Button.manager-button">
         <Setter Property="Foreground" Value="{StaticResource WhiteMain}"/>
         <Setter Property="Background" Value="{StaticResource Blue200}"/>
-        <Setter Property="FontSize" Value="14"/>
         <Setter Property="Padding" Value="16,8"/>
         <Setter Property="BorderThickness" Value="0"/>
 
@@ -43,7 +44,6 @@
     <Style Selector="Button.secondary-button">
         <Setter Property="Foreground" Value="{StaticResource WhiteMain}"/>
         <Setter Property="Background" Value="{StaticResource Grey300}"/>
-        <Setter Property="FontSize" Value="14"/>
         <Setter Property="Padding" Value="16,8"/>
         <Setter Property="BorderThickness" Value="0"/>
 
@@ -63,7 +63,6 @@
         <Setter Property="HorizontalAlignment" Value="Stretch"/>
         <Setter Property="Foreground" Value="{StaticResource WhiteMain}"/>
         <Setter Property="Background" Value="{StaticResource Grey300}"/>
-        <Setter Property="FontSize" Value="14"/>
         <Setter Property="Padding" Value="12,8"/>
         <Setter Property="MinHeight" Value="36"/>
 

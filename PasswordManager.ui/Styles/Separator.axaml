@@ -10,6 +10,7 @@
   <Style Selector="Separator.vertical-separator">
     <Setter Property="Width" Value="1"/>
     <Setter Property="Height" Value="NaN"/>
+    <Setter Property="Margin" Value="0,8,0,52"/>
     <Setter Property="Background" Value="{StaticResource Grey300}"/>
 </Style>
 </Styles>

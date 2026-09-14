@@ -26,7 +26,7 @@
             <Setter Property="Background" Value="{StaticResource Grey500}"/>
         </Style>
 
-        <!-- Наведение мышкой (:pointerover) -->
+        <!-- Наведение мышкой -->
         <Style Selector="^:pointerover">
             <Style Selector="^ /template/ Thumb">
                 <Setter Property="Background" Value="{StaticResource Blue100}"/>
@@ -37,7 +37,7 @@
             </Style>
         </Style>
 
-        <!-- Нажатие (:pressed) -->
+        <!-- Нажатие -->
         <Style Selector="^:pressed">
             <Style Selector="^ /template/ Thumb">
                 <Setter Property="Background" Value="{StaticResource Blue300}"/>

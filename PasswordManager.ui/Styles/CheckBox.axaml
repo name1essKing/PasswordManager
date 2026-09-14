@@ -11,9 +11,11 @@
         </Border>
     </Design.PreviewWith>
 
-    <Style Selector="CheckBox.custom-check-box">
+    <Style Selector="CheckBox.custom-checkbox">
         <Setter Property="Foreground" Value="{StaticResource WhiteMain}"/>
         <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="FontSize" Value="13"/>
         
         <!-- Обычное состояние квадратного чекбокса -->
         <Style Selector="^ /template/ Border#NormalRectangle">
@@ -28,7 +30,7 @@
             <Setter Property="Fill" Value="{StaticResource WhiteMain}"/>
         </Style>
 
-        <!-- Наведение мышкой (:pointerover) -->
+        <!-- Наведение мышкой -->
         <Style Selector="^:pointerover">
             <Style Selector="^ /template/ Border#NormalRectangle">
                 <Setter Property="Background" Value="{StaticResource Grey300}"/>
@@ -40,21 +42,21 @@
             </Style>
         </Style>
 
-        <!-- Состояние выбранного чекбокса (:checked) -->
+        <!-- Состояние выбранного чекбокса -->
         <Style Selector="^:checked">
             <Style Selector="^ /template/ Border#NormalRectangle">
                 <Setter Property="Background" Value="{StaticResource Blue200}"/>
                 <Setter Property="BorderBrush" Value="{StaticResource Blue200}"/>
             </Style>
 
-            <!-- Наведение мышкой на выбранный чекбокс (:checked:pointerover) -->
+            <!-- Наведение мышкой на выбранный чекбокс -->
             <Style Selector="^:pointerover /template/ Border#NormalRectangle">
                 <Setter Property="Background" Value="{StaticResource Blue100}"/>
                 <Setter Property="BorderBrush" Value="{StaticResource Blue100}"/>
             </Style>
         </Style>
 
-        <!-- Нажатие (:pressed) -->
+        <!-- Нажатие -->
         <Style Selector="^:pressed /template/ Border#NormalRectangle">
             <Setter Property="Background" Value="{StaticResource Blue300}"/>
             <Setter Property="BorderBrush" Value="{StaticResource Blue300}"/>
