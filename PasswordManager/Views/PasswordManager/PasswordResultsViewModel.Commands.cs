@@ -9,24 +9,22 @@ namespace PasswordManager.Client.Views
         {
             public PasswordResultsViewModelCommands(PasswordResultsViewModel vm)
             {
+                GeneratePassword = ReactiveCommand.CreateFromTask(async () =>
+                {
+                    System.Diagnostics.Debug.WriteLine("--> [Client] GeneratePassword command executed!");
+                    await vm.GeneratePassword();
+                });
+
                 CopyPasswordToClipboard = ReactiveCommand.CreateFromTask<string>(
                     async (password) =>
                     {
                         await vm.CopyPasswordToClipboard(password);
                     }
                 );
-
-                CopyAllPasswordsToClipboard = ReactiveCommand.CreateFromTask(
-                    async () =>
-                    {
-                        await vm.CopyAllPasswordsToClipboard();
-                    }
-                );
             }
 
+            public IReactiveCommand GeneratePassword { get; }
             public ReactiveCommand<string, Unit> CopyPasswordToClipboard { get; }
-
-            public IReactiveCommand CopyAllPasswordsToClipboard { get; }
         }
 
         private PasswordResultsViewModelCommands _commands;

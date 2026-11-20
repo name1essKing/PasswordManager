@@ -1,72 +1,103 @@
-﻿using PasswordManager.Client.Services;
+﻿using System;
+using System.Threading.Tasks;
+using Avalonia;
+using Avalonia.Controls.ApplicationLifetimes;
+using PasswordManager.Client.Services;
 using PasswordManager.ui;
 using ReactiveUI;
+
 namespace PasswordManager.Client.Views
 {
     public sealed partial class PasswordOptionsViewModel : ViewModelBase
     {
         // Сервисы
-        private readonly IPasswordGeneratorService _generator;
         private readonly IPasswordStorageService _storage;
-        private readonly IPasswordEventService _eventService;
-
-        // Поля настроек генератора
-        private int _passwordLength;
-        private bool _useDigit;
-        private bool _useSymbols;
-        private bool _useUpperCase;
-        private int _passwordsCount;
+        private readonly IPasswordSettingsService _settingsService;
 
         /// <summary>
-        /// Длина пароля
+        /// Длина пароля, которую пользователь хочет сгенерировать. Значение по умолчанию - 8.
         /// </summary>
         public int PasswordLength
         {
-            get => _passwordLength;
-            set => this.RaiseAndSetIfChanged(ref _passwordLength, value);
+            get => _settingsService.PasswordLength;
+            set
+            {
+                if (_settingsService.PasswordLength != value)
+                {
+                    _settingsService.PasswordLength = value;
+                    this.RaisePropertyChanged();
+                }
+            }
         }
 
         /// <summary>
-        /// Использовать цифры?
+        /// флаг, указывающий, следует ли включать цифры в сгенерированный пароль. Значение по умолчанию - true.
         /// </summary>
         public bool UseDigit
         {
-            get => _useDigit;
-            set => this.RaiseAndSetIfChanged(ref _useDigit, value);
+            get => _settingsService.UseDigit;
+            set
+            {
+                if (_settingsService.UseDigit != value)
+                {
+                    _settingsService.UseDigit = value;
+                    this.RaisePropertyChanged();
+                }
+            }
         }
 
         /// <summary>
-        /// Использовать спецсимволы?
+        /// флаг, указывающий, следует ли включать символы в сгенерированный пароль. Значение по умолчанию - true.
         /// </summary>
         public bool UseSymbols
         {
-            get => _useSymbols;
-            set => this.RaiseAndSetIfChanged(ref _useSymbols, value);
+            get => _settingsService.UseSymbols;
+            set
+            {
+                if (_settingsService.UseSymbols != value)
+                {
+                    _settingsService.UseSymbols = value;
+                    this.RaisePropertyChanged();
+                }
+            }
         }
 
         /// <summary>
-        /// Использовать заглавные буквы?
+        /// флаг, указывающий, следует ли включать заглавные буквы в сгенерированный пароль. Значение по умолчанию - true.
         /// </summary>
         public bool UseUpperCase
         {
-            get => _useUpperCase;
-            set => this.RaiseAndSetIfChanged(ref _useUpperCase, value);
+            get => _settingsService.UseUpperCase;
+            set
+            {
+                if (_settingsService.UseUpperCase != value)
+                {
+                    _settingsService.UseUpperCase = value;
+                    this.RaisePropertyChanged();
+                }
+            }
         }
 
         /// <summary>
-        /// Количество генерируемых паролей за раз
+        /// количество паролей, которые пользователь хочет сгенерировать. Значение по умолчанию - 1.
         /// </summary>
         public int PasswordsCount
         {
-            get => _passwordsCount;
-            set => this.RaiseAndSetIfChanged(ref _passwordsCount, value);
+            get => _settingsService.PasswordsCount;
+            set
+            {
+                if (_settingsService.PasswordsCount != value)
+                {
+                    _settingsService.PasswordsCount = value;
+                    this.RaisePropertyChanged();
+                }
+            }
         }
 
-        public PasswordOptionsViewModel(IPasswordGeneratorService generator, IPasswordStorageService storage, IPasswordEventService eventService)
+        public PasswordOptionsViewModel(IPasswordStorageService storage, IPasswordSettingsService settingsService)
         {
-            _generator = generator;
             _storage = storage;
-            _eventService = eventService;
+            _settingsService = settingsService;
 
             var savedData = _storage.LoadHistory();
 
@@ -88,30 +119,23 @@ namespace PasswordManager.Client.Views
         }
 
         /// <summary>
-        /// Генерация новых паролей и перезапись сохраненного результата последней сессии в JSON
+        /// Скопировать все сгенерированные пароли в буфер обмена
         /// </summary>
-        public void GeneratePassword()
+        public async Task CopyAllPasswordsToClipboard()
         {
-            var options = PasswordOptions.None;
-            if (UseDigit) options |= PasswordOptions.Digits;
-            if (UseSymbols) options |= PasswordOptions.Symbols;
-            if (UseUpperCase) options |= PasswordOptions.UpperCase;
+            var savedData = _storage.LoadHistory();
+            if (savedData.History == null || savedData.History.Count == 0) return;
 
-            var generatedList = new List<string>();
+            var allPasswords = string.Join(Environment.NewLine, savedData.History);
 
-            for (int i = 0; i < PasswordsCount; i++)
+            if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
-                var password = _generator.Generate(PasswordLength, options);
-                generatedList.Add(password);
+                var clipboard = desktop.MainWindow?.Clipboard;
+                if (clipboard != null)
+                {
+                    await clipboard.SetTextAsync(allPasswords);
+                }
             }
-
-            _storage.SaveHistory(new PasswordHistoryData
-            {
-                Options = options,
-                History = generatedList
-            });
-
-            _eventService.NotifyPasswordsGenerated(generatedList);
         }
     }
 }

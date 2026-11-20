@@ -8,13 +8,16 @@ namespace PasswordManager.Client.Views
         {
             public PasswordOptionsViewModelCommands(PasswordOptionsViewModel vm)
             {
-                GeneratePassword = ReactiveCommand.Create(() =>
+                System.Diagnostics.Debug.WriteLine("--> [Client] PasswordOptionsViewModelCommands initialized!");
+
+                CopyAllPasswordsToClipboard = ReactiveCommand.CreateFromTask(async () =>
                 {
-                    vm.GeneratePassword();
+                    System.Diagnostics.Debug.WriteLine("--> [Client] CopyAllPasswordsToClipboard command executed!");
+                    await vm.CopyAllPasswordsToClipboard();
                 });
             }
 
-            public IReactiveCommand GeneratePassword { get; }
+            public IReactiveCommand CopyAllPasswordsToClipboard { get; }
         }
 
         private PasswordOptionsViewModelCommands _commands;
